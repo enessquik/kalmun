@@ -17,12 +17,17 @@
 
     <nav>
         <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#committees">Committees</a></li>
-                <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#venue">Venue</a></li>
-                <li><a href="#apply">Apply</a></li>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#committees" onclick="closeMenu()">Committees</a></li>
+                <li><a href="#schedule" onclick="closeMenu()">Schedule</a></li>
+                <li><a href="#venue" onclick="closeMenu()">Venue</a></li>
+                <li><a href="#apply" onclick="closeMenu()">Apply</a></li>
             </ul>
         </div>
     </nav>
@@ -141,5 +146,21 @@
             <p>Contact: please contact us by visiting our school :D</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
