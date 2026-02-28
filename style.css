@@ -322,6 +322,29 @@ main {
     font-size: 0.95em;
 }
 
+.contact-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-content p {
+    font-size: 1.2em;
+    color: #475569;
+}
+
+.email-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.email-link:hover {
+    color: #1e3a8a;
+    border-bottom-color: #3b82f6;
+}
+
 footer {
     background-color: #1e293b;
     color: white;
