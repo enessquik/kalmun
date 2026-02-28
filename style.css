@@ -192,6 +192,21 @@ main {
     font-size: 0.95em;
 }
 
+.more-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+    opacity: 0.8;
+}
+
+.more-card h3 {
+    color: #64748b;
+    font-style: italic;
+}
+
+.more-card .committee-name {
+    color: #94a3b8;
+}
+
 .schedule-timeline {
     display: flex;
     flex-direction: column;
