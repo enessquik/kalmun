@@ -139,37 +139,52 @@ main {
 
 .committees-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .committee-card {
-    padding: 30px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-radius: 10px;
+    padding: 35px 25px;
+    background: white;
+    border-radius: 15px;
     text-align: center;
-    transition: all 0.3s;
-    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.committee-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6 0%, #1e3a8a 100%);
 }
 
 .committee-card:hover {
     border-color: #3b82f6;
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
 }
 
 .committee-card h3 {
     color: #1e3a8a;
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 12px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .committee-name {
     color: #3b82f6;
     font-weight: 600;
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    font-size: 0.95em;
+    margin-bottom: 0;
+    line-height: 1.5;
 }
 
 .committee-desc {
@@ -319,6 +334,38 @@ footer p {
     margin: 5px 0;
 }
 
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.5em;
@@ -328,13 +375,51 @@ footer p {
         font-size: 1.2em;
     }
     
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: relative;
+    }
+    
+    nav .container {
+        position: relative;
+    }
+    
     nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #1e293b;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        padding: 80px 30px 30px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        z-index: 999;
+    }
+    
+    nav ul.active {
+        right: 0;
     }
     
     nav ul li {
-        margin: 10px 0;
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 1.2em;
+        border-radius: 8px;
+    }
+    
+    nav ul li a:hover {
+        background-color: rgba(96, 165, 250, 0.2);
     }
     
     .schedule-item {
